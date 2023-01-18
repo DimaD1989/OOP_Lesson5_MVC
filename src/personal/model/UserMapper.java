@@ -1,4 +1,3 @@
-
 package personal.model;
 
 public class UserMapper {
