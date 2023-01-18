@@ -40,8 +40,8 @@ public class RepositoryFile implements Repository {
         return id;
     }
 
-    @Override
-    public void updateUser(User user) {
+
+    public void updateUser(User user){
         List<User> users = getAllUsers();
         User target = users.stream().filter(i -> i.getId().equals(user.getId())).findFirst().get();
         target.setFirstName(user.getFirstName());
@@ -51,18 +51,20 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public void deleteById(String inputId) {
+    public void deleteByID(String inputId) {
         List<User> users = getAllUsers();
         User target = users.stream().filter(i -> i.getId().equals(inputId)).findFirst().get();
         users.remove(target);
         writeDown(users);
     }
 
-    private void writeDown (List<User> users){
+    private void writeDown(List<User> users){
         List<String> lines = new ArrayList<>();
         for (User item: users) {
             lines.add(mapper.map(item));
         }
         fileOperation.saveAllLines(lines);
     }
+
+
 }

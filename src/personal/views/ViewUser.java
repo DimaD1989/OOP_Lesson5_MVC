@@ -41,15 +41,15 @@ public class ViewUser {
                     case UPDATE:
                         String numId = prompt("Какой контакт редактировать? Введите номер ID: ");
                         userController.idPresenceValidation(numId);
-                        userController.updateUser(numId, createAGuy());
+                        userController.updUser(numId, createAGuy());
                         break;
                     case DELETE:
-                        String delId = prompt("Какой ID удалить?: ");
-                        userController.deleteById(delId);
+                        String delId = prompt("Какой ID удалить?");
+                        userController.deleteByID(delId);
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Oopsie!\n"+ e.getMessage()); ;
+                System.out.println("Oopsie!\n" + e.getMessage());
             }
         }
     }
